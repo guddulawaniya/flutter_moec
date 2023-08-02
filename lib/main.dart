@@ -205,6 +205,7 @@ class Page1 extends StatelessWidget {
       child: Column(
         children: [
           CarouselSlider(
+
             items: [
               //1st Image of Slider
               Container(
@@ -250,7 +251,7 @@ class Page1 extends StatelessWidget {
               enlargeFactor: double.infinity,
               autoPlay: true,
               enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayAnimationDuration: Duration(seconds: 2),
             ),
           ),
           Card(
@@ -348,11 +349,11 @@ class Page1 extends StatelessWidget {
           Container(
             alignment: Alignment.topLeft,
             margin: EdgeInsets.only(left: 16, right: 16, top: 10),
-            child:  Text(
-            "Quick Actions",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+            child: Text(
+              "Quick Actions",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
-            ),
+          ),
           Container(
             margin: EdgeInsets.only(left: 16, right: 16, top: 15),
             child: GridView.count(
@@ -361,12 +362,14 @@ class Page1 extends StatelessWidget {
               controller: ScrollController(keepScrollOffset: false),
               children: [
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, PageTransition(child: new_application(), type: PageTransitionType.rightToLeft));
-
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            child: new_application(),
+                            type: PageTransitionType.rightToLeft));
                   },
                   child: Card(
-
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -390,11 +393,13 @@ class Page1 extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, PageTransition(child: new_application(), type: PageTransitionType.rightToLeft));
-
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            child: new_application(),
+                            type: PageTransitionType.rightToLeft));
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -421,9 +426,12 @@ class Page1 extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, PageTransition(child: new_application(), type: PageTransitionType.rightToLeft));
-
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            child: new_application(),
+                            type: PageTransitionType.rightToLeft));
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -450,9 +458,12 @@ class Page1 extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, PageTransition(child: new_application(), type: PageTransitionType.rightToLeft));
-
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            child: new_application(),
+                            type: PageTransitionType.rightToLeft));
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -479,12 +490,14 @@ class Page1 extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, PageTransition(child: new_application(), type: PageTransitionType.rightToLeft));
-
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            child: new_application(),
+                            type: PageTransitionType.rightToLeft));
                   },
                   child: Card(
-
                     shape: RoundedRectangleBorder(
                       side: BorderSide(width: 1, color: Colors.grey),
                       borderRadius: BorderRadius.circular(8),
@@ -509,9 +522,12 @@ class Page1 extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, PageTransition(child: new_application(), type: PageTransitionType.rightToLeft));
-
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            child: new_application(),
+                            type: PageTransitionType.rightToLeft));
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -540,7 +556,6 @@ class Page1 extends StatelessWidget {
               ],
             ),
           ),
-
           Container(
             alignment: Alignment.topLeft,
             margin: EdgeInsets.only(left: 16, top: 20),
@@ -549,12 +564,93 @@ class Page1 extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
           ),
-          ListView(
-            scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
+          Container(
+            height: 180,
+            margin: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 20),
+            child: ListView(
+              shrinkWrap: true,
+              // This next line does the trick.
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: (){
+                    Fluttertoast.showToast(msg: 'clicked -1');
+                  },
+                  child: SizedBox(
+                    child: Card(
 
+                      child: Column(
+
+                      ),
+                      color: Colors.blue[200],
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                    width: 200,
+
+                  ),
+                ),
+                GestureDetector(
+                  onTap: (){
+                    Fluttertoast.showToast(msg: 'clicked  2');
+                  },
+                  child: SizedBox(
+                    child: Card(
+                      child: Column(
+
+                      ),
+
+                      color: Colors.blue[200],
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                    width: 200,
+
+                  ),
+                ),
+                GestureDetector(
+                  onTap: (){
+                    Fluttertoast.showToast(msg: 'Clicked 3 ');
+                  },
+                  child: SizedBox(
+                    child: Card(
+                      child: Column(
+
+                      ),
+
+                      color: Colors.blue[200],
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                    width: 200,
+
+                  ),
+                ),
+                GestureDetector(
+                  onTap: (){
+                    Fluttertoast.showToast(msg: "clicked 4");
+                  },
+                  child: SizedBox(
+                    child: Card(
+                      child: Column(
+
+                      ),
+
+                      color: Colors.blue[200],
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                    width: 200,
+
+                  ),
+                ),
+              ],
+            ),
           )
-
         ],
       ),
     ));
