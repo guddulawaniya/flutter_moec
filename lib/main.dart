@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:demo/custom_color.dart';
 import 'package:demo/new_application.dart';
 import 'package:demo/splash.dart';
 import 'package:flutter/material.dart';
@@ -199,13 +198,51 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int _value = 6;
+    List<String> instrestlist = [
+      "Architecture",
+      "Computer Science",
+      "Design",
+      "Engineering",
+      "Business",
+      "Hospitality &\nTourism",
+      "Humanities &\nSocial Science",
+      "Law",
+      "Management",
+      "Marketing &\nAdvertising",
+      "Media &\nJournalism",
+      "Medical",
+      "Performing &\nCreative Arts",
+      "Science",
+      "Sport & Nutrition",
+      "Languages",
+      "Education"
+    ];
+
+    List<String> imagsUrls = [
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Architecture.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/computer.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/graphic_design.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Engineering.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Business%20%26%20Management.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Hospitality.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Humanities.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Law%20%26%20Legal%20Studies.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/management.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Marketing.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Media%20%26%20Communication.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Health%20%26%20Nursing.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Art%20%26%20Design.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Science.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Sports%20%26%20Fitness.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/translation.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Education.png'
+    ];
+
     return SingleChildScrollView(
         child: Container(
       child: Column(
         children: [
           CarouselSlider(
-
             items: [
               //1st Image of Slider
               Container(
@@ -298,7 +335,7 @@ class Page1 extends StatelessWidget {
               children: [
                 Text(
                   "Recommended Programs",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 Text("View all")
               ],
@@ -346,226 +383,250 @@ class Page1 extends StatelessWidget {
               ),
             ),
           ),
+
+          // Quick Actions
+
+
+
           Container(
-            alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(left: 16, right: 16, top: 10),
-            child: Text(
-              "Quick Actions",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 16, right: 16, top: 15),
-            child: GridView.count(
-              crossAxisCount: 3,
-              shrinkWrap: true,
-              controller: ScrollController(keepScrollOffset: false),
+            color: Color.fromARGB(255, 231, 238, 246),
+            padding: EdgeInsets.only(bottom: 10),
+            child: Column(
               children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: new_application(),
-                            type: PageTransitionType.rightToLeft));
-                  },
-                  child: Card(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: SizedBox(
-                            height: 35,
-                            child: Image.asset('assets/Application.png'),
-                          ),
-                        ),
-                        Text(
-                          'Add Application',
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    color: Color.fromARGB(255, 231, 238, 246),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(left: 16, right: 16, top: 10),
+                  child: Text(
+                    "Quick Actions",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: new_application(),
-                            type: PageTransitionType.rightToLeft));
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: SizedBox(
-                            height: 35,
-                            child: Image.asset('assets/IELTS.png'),
+                Container(
+                  margin: EdgeInsets.only(left: 16, right: 16, top: 15),
+                  child: GridView.count(
+                    crossAxisCount: 3,
+                    shrinkWrap: true,
+                    controller: ScrollController(keepScrollOffset: false),
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: new_application(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                        child: Card(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SizedBox(
+                                  height: 35,
+                                  child: Image.asset('assets/Application.png'),
+                                ),
+                              ),
+                              Text(
+                                'Add Application',
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        Text(
-                          'IELTS Test Booking',
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    color: Color.fromARGB(255, 231, 238, 246),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: new_application(),
-                            type: PageTransitionType.rightToLeft));
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: SizedBox(
-                            height: 35,
-                            child: Image.asset('assets/GIC.png'),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: new_application(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SizedBox(
+                                  height: 35,
+                                  child: Image.asset('assets/IELTS.png'),
+                                ),
+                              ),
+                              Text(
+                                'IELTS Test Booking',
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
-                        Text(
-                          'GIC Account',
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    color: Color.fromARGB(255, 231, 238, 246),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: new_application(),
-                            type: PageTransitionType.rightToLeft));
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: SizedBox(
-                            height: 35,
-                            child: Image.asset('assets/SOP.png'),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: new_application(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SizedBox(
+                                  height: 35,
+                                  child: Image.asset('assets/GIC.png'),
+                                ),
+                              ),
+                              Text(
+                                'GIC Account',
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
-                        Text(
-                          'SOP Guidance',
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    color: Color.fromARGB(255, 231, 238, 246),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: new_application(),
-                            type: PageTransitionType.rightToLeft));
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: SizedBox(
-                            height: 35,
-                            child: Image.asset('assets/Accomodation.png'),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: new_application(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SizedBox(
+                                  height: 35,
+                                  child: Image.asset('assets/SOP.png'),
+                                ),
+                              ),
+                              Text(
+                                'SOP Guidance',
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
-                        Text(
-                          'Find Accommodation',
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    color: Color.fromARGB(255, 231, 238, 246),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: new_application(),
-                            type: PageTransitionType.rightToLeft));
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: SizedBox(
-                            height: 35,
-                            child: Image.asset('assets/Loan.png'),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: new_application(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SizedBox(
+                                  height: 35,
+                                  child: Image.asset('assets/Accomodation.png'),
+                                ),
+                              ),
+                              Text(
+                                'Find Accommodation',
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
-                        Text(
-                          'Education Loan',
-                          textAlign: TextAlign.center,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: new_application(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SizedBox(
+                                  height: 35,
+                                  child: Image.asset('assets/Loan.png'),
+                                ),
+                              ),
+                              Text(
+                                'Education Loan',
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                    color: Color.fromARGB(255, 231, 238, 246),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
+
+
+
+
+          // TOp preferred countries
+
+
+
           Container(
             alignment: Alignment.topLeft,
             margin: EdgeInsets.only(left: 16, top: 20),
             child: Text(
               "Top Preferred Countries",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
+
+
           Container(
             height: 180,
+            width: double.infinity,
             margin: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 20),
             child: ListView(
               shrinkWrap: true,
@@ -573,82 +634,267 @@ class Page1 extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 GestureDetector(
-                  onTap: (){
-                    Fluttertoast.showToast(msg: 'clicked -1');
+                  onTap: () {
+                    Fluttertoast.showToast(msg: 'Australia 1');
                   },
                   child: SizedBox(
                     child: Card(
-
-                      child: Column(
-
-                      ),
-                      color: Colors.blue[200],
+                      child: Container(
+                          alignment: Alignment.bottomCenter,
+                          margin: EdgeInsets.only(bottom: 15),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                            image: DecorationImage(
+                              alignment: Alignment.topCenter,
+                              fit: BoxFit.contain,
+                              image: NetworkImage(
+                                  "https://cdn.pixabay.com/photo/2020/02/21/05/49/australia-4866531_1280.png"),
+                            ),
+                          ),
+                          child: Text(
+                            'Australia',
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          )),
+                      color: Colors.white,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(width: 1, color: Colors.grey),
                           borderRadius: BorderRadius.circular(8)),
                     ),
-                    width: 200,
-
                   ),
                 ),
-                GestureDetector(
-                  onTap: (){
-                    Fluttertoast.showToast(msg: 'clicked  2');
-                  },
-                  child: SizedBox(
-                    child: Card(
-                      child: Column(
-
-                      ),
-
-                      color: Colors.blue[200],
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
-                    width: 200,
-
-                  ),
+                SizedBox(
+                  width: 15,
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Fluttertoast.showToast(msg: 'Clicked 3 ');
+                  onTap: () {
+                    Fluttertoast.showToast(msg: 'New zealand  2');
                   },
                   child: SizedBox(
                     child: Card(
                       child: Column(
-
+                        children: [
+                          Container(
+                            height: 120,
+                            alignment: Alignment.bottomCenter,
+                            margin: EdgeInsets.only(bottom: 15),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8)),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                alignment: Alignment.topCenter,
+                                image: NetworkImage(
+                                    "https://cdn.pixabay.com/photo/2013/07/13/14/16/new-zealand-162373_1280.png"),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'New zealand',
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          )
+                        ],
                       ),
-
-                      color: Colors.blue[200],
+                      color: Colors.white,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(width: 1, color: Colors.grey),
                           borderRadius: BorderRadius.circular(8)),
                     ),
                     width: 200,
-
                   ),
                 ),
+                SizedBox(
+                  width: 15,
+                ),
                 GestureDetector(
-                  onTap: (){
-                    Fluttertoast.showToast(msg: "clicked 4");
+                  onTap: () {
+                    Fluttertoast.showToast(msg: 'United Kingdom 3 ');
                   },
                   child: SizedBox(
                     child: Card(
                       child: Column(
-
+                        children: [
+                          Container(
+                            height: 120,
+                            alignment: Alignment.bottomCenter,
+                            margin: EdgeInsets.only(bottom: 15),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8)),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                alignment: Alignment.topCenter,
+                                image: NetworkImage(
+                                    "https://cdn.pixabay.com/photo/2012/04/11/15/31/united-28519_1280.png"),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'United Kingdom',
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          )
+                        ],
                       ),
-
-                      color: Colors.blue[200],
+                      color: Colors.white,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(width: 1, color: Colors.grey),
                           borderRadius: BorderRadius.circular(8)),
                     ),
                     width: 200,
-
+                  ),
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Fluttertoast.showToast(msg: "USA 4");
+                  },
+                  child: SizedBox(
+                    child: Card(
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 120,
+                            alignment: Alignment.bottomCenter,
+                            margin: EdgeInsets.only(bottom: 15),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8)),
+                              image: DecorationImage(
+                                alignment: Alignment.topCenter,
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                    "https://cdn.pixabay.com/photo/2012/04/10/23/21/united-26967_1280.png"),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'USA',
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          )
+                        ],
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                    width: 200,
                   ),
                 ),
               ],
+            ),
+          ),
+
+
+
+          // interest area
+
+
+
+          Container(
+            height: 200,
+            color: Color.fromARGB(255, 213, 229, 252),
+            margin: EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(top: 7),
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(left: 16),
+                  child: Text(
+                    "Insterests",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ),
+                Container(
+                  height: 140,
+                  margin: EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 16,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      ListView.builder(
+                          itemCount: instrestlist.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, i) {
+                            return Column(
+                              children: [
+                                Container(
+                                  child: CircleAvatar(
+                                    radius: 40,
+                                    backgroundImage: NetworkImage(imagsUrls[i]),
+                                    backgroundColor: Colors.white,
+                                  ),
+                                  height: 70,
+                                  margin: EdgeInsets.all(8),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  instrestlist[i],
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.black87),
+                                ),
+                              ],
+                            );
+                          }),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+
+
+
+          // Refers and Earn
+
+
+
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.only(left: 16),
+            child: Text(
+              "Refer & Earn ",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
+          Container(
+            height: 100,
+            margin: EdgeInsets.all(10),
+            child: Card(
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8)),
+                      image: DecorationImage(
+
+                        alignment: Alignment.topCenter,
+                        fit: BoxFit.cover,
+
+                        image: NetworkImage("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
+
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
             ),
           )
         ],
@@ -656,6 +902,20 @@ class Page1 extends StatelessWidget {
     ));
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Page2 extends StatelessWidget {
   const Page2({Key? key}) : super(key: key);

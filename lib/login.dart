@@ -4,7 +4,6 @@ import 'package:demo/main.dart';
 import 'package:demo/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
