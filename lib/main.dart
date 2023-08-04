@@ -238,6 +238,37 @@ class Page1 extends StatelessWidget {
       'https://raw.githubusercontent.com/guddulawaniya/images/main/Education.png'
     ];
 
+    List<String> countriesNamelist = [
+      'United Kingdom',
+      'USA',
+      'Canada',
+      'Australia',
+      'Italy',
+      'Germany',
+      'New Zealand',
+      'Dubai',
+      'Poland',
+      'Ireland',
+      'Latvia',
+      'Mauritius',
+      'Malta',
+    ];
+    List<String> CountriesFlagList = [
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/United_Kingdom_flag.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/Countries_Flag_Images/usa_flag.avif',
+      'https://raw.githubusercontent.com/guddulawaniya/images/846fbb3392efdd265ec19d65252b27fba116cb4a/canada_flag.avif',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/australia_flag.avif',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/italy_flag.avif',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/german-flag.avif',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/new_zealand_flag.avif',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/dubai_flag.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Flag_of_Poland.svg.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Flag_of_Ireland.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Flag_of_Latvia.svg.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Flag_of_Mauritius.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/Flag_of_Malta.png',
+    ];
+
     return SingleChildScrollView(
         child: Container(
       child: Column(
@@ -386,8 +417,6 @@ class Page1 extends StatelessWidget {
 
           // Quick Actions
 
-
-
           Container(
             color: Color.fromARGB(255, 231, 238, 246),
             padding: EdgeInsets.only(bottom: 10),
@@ -406,6 +435,8 @@ class Page1 extends StatelessWidget {
                   child: GridView.count(
                     crossAxisCount: 3,
                     shrinkWrap: true,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
                     controller: ScrollController(keepScrollOffset: false),
                     children: [
                       GestureDetector(
@@ -607,193 +638,99 @@ class Page1 extends StatelessWidget {
             ),
           ),
 
-
-
-
           // TOp preferred countries
 
-
-
           Container(
-            alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(left: 16, top: 20),
-            child: Text(
-              "Top Preferred Countries",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-          ),
-
-
-          Container(
-            height: 180,
-            width: double.infinity,
-            margin: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 20),
-            child: ListView(
-              shrinkWrap: true,
-              // This next line does the trick.
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    Fluttertoast.showToast(msg: 'Australia 1');
-                  },
-                  child: SizedBox(
-                    child: Card(
-                      child: Container(
-                          alignment: Alignment.bottomCenter,
-                          margin: EdgeInsets.only(bottom: 15),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8.0),
-                            image: DecorationImage(
-                              alignment: Alignment.topCenter,
-                              fit: BoxFit.contain,
-                              image: NetworkImage(
-                                  "https://cdn.pixabay.com/photo/2020/02/21/05/49/australia-4866531_1280.png"),
-                            ),
-                          ),
-                          child: Text(
-                            'Australia',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
-                          )),
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
+            color: Colors.white,
+            padding: EdgeInsets.only(top: 20, bottom: 20),
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(left: 16),
+                  child: Text(
+                    "Top Preferred Countries",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
-                SizedBox(
-                  width: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Fluttertoast.showToast(msg: 'New zealand  2');
-                  },
-                  child: SizedBox(
-                    child: Card(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            alignment: Alignment.bottomCenter,
-                            margin: EdgeInsets.only(bottom: 15),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8)),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                alignment: Alignment.topCenter,
-                                image: NetworkImage(
-                                    "https://cdn.pixabay.com/photo/2013/07/13/14/16/new-zealand-162373_1280.png"),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'New zealand',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
-                          )
-                        ],
-                      ),
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
-                    width: 200,
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 16,
                   ),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Fluttertoast.showToast(msg: 'United Kingdom 3 ');
-                  },
-                  child: SizedBox(
-                    child: Card(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            alignment: Alignment.bottomCenter,
-                            margin: EdgeInsets.only(bottom: 15),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8)),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                alignment: Alignment.topCenter,
-                                image: NetworkImage(
-                                    "https://cdn.pixabay.com/photo/2012/04/11/15/31/united-28519_1280.png"),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'United Kingdom',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
-                          )
-                        ],
-                      ),
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
-                    width: 200,
-                  ),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Fluttertoast.showToast(msg: "USA 4");
-                  },
-                  child: SizedBox(
-                    child: Card(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            alignment: Alignment.bottomCenter,
-                            margin: EdgeInsets.only(bottom: 15),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8)),
-                              image: DecorationImage(
-                                alignment: Alignment.topCenter,
-                                fit: BoxFit.cover,
-                                image: NetworkImage(
-                                    "https://cdn.pixabay.com/photo/2012/04/10/23/21/united-26967_1280.png"),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'USA',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
-                          )
-                        ],
-                      ),
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
-                    width: 200,
+                  child: Stack(
+                    children: <Widget>[
+                      ListView.builder(
+                          itemCount: countriesNamelist.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, i) {
+                            return Column(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Fluttertoast.showToast(
+                                        msg: countriesNamelist[i]);
+                                  },
+                                  child: SizedBox(
+                                    width: 250,
+                                    child: Card(
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: 140,
+                                            alignment: Alignment.bottomCenter,
+                                            margin: EdgeInsets.only(bottom: 15),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(8),
+                                                  topRight: Radius.circular(8)),
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                alignment: Alignment.topCenter,
+                                                image: NetworkImage(
+                                                    CountriesFlagList[i]),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            child: Text(
+                                              countriesNamelist[i],
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            margin: EdgeInsets.only(bottom: 12),
+                                          ),
+                                        ],
+                                      ),
+                                      color: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 190, 198, 206),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8)),
+                                      margin:
+                                          EdgeInsets.only(left: 8, right: 8),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          }),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
 
-
-
           // interest area
-
-
 
           Container(
             height: 200,
@@ -853,12 +790,7 @@ class Page1 extends StatelessWidget {
             ),
           ),
 
-
-
-
           // Refers and Earn
-
-
 
           Container(
             alignment: Alignment.topLeft,
@@ -872,22 +804,49 @@ class Page1 extends StatelessWidget {
             height: 100,
             margin: EdgeInsets.all(10),
             child: Card(
+              color: Colors.white70,
               child: Row(
                 children: [
                   Container(
-                    height: 100,
+                    width: 140,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),
-                          topRight: Radius.circular(8)),
+                          bottomLeft: Radius.circular(8)),
                       image: DecorationImage(
-
                         alignment: Alignment.topCenter,
                         fit: BoxFit.cover,
-
-                        image: NetworkImage("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
-
+                        image: NetworkImage(
+                            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
                       ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    padding: const EdgeInsets.only(
+                      left: 15,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          'Refer a Friend',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text('Earn your tution fee',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.black54
+                        ),),
+                        Text('Copy & share your referral code',style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontSize: 15,
+                          color: Colors.black,
+                        ),),
+                      ],
                     ),
                   )
                 ],
@@ -902,20 +861,6 @@ class Page1 extends StatelessWidget {
     ));
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class Page2 extends StatelessWidget {
   const Page2({Key? key}) : super(key: key);
