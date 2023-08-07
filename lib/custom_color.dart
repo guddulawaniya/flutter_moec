@@ -9,7 +9,6 @@ class AppTheme {
   static const Color _lightPrimaryVariantColor = Color(0xFF546E7A);
   static const Color _lightSecondaryColor = Colors.green;
   static const Color _lightOnPrimaryColor = Colors.black;
-
   static const Color _darkPrimaryColor = Colors.white24;
   static const Color _darkPrimaryVariantColor = Colors.black;
   static const Color _darkSecondaryColor = Colors.white;

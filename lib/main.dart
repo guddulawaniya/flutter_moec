@@ -3,6 +3,7 @@ import 'package:demo/new_application.dart';
 import 'package:demo/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 
 void main() {
@@ -66,7 +67,56 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleTextStyle: TextStyle(color: Colors.white, fontSize: 18),
+        leading: Container(
+          alignment: Alignment.center,
+          child: CircleAvatar(
+            backgroundColor: Color.fromARGB(255, 171, 38, 38),
+            child: IconButton(
+              onPressed: () {
+                Fluttertoast.showToast(msg: "profile image clicked ");
+              },
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        actions: [
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30)
+            ),
+            margin: EdgeInsets.only(right: 10,top: 8,bottom: 8),
+            child: Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Fluttertoast.showToast(msg: "search bar clicked ");
+                    },
+                    icon: Icon(Icons.search)),
+                IconButton(
+                    onPressed: () {
+                      Fluttertoast.showToast(msg: "Favorate icon  clicked ");
+                    },
+                    icon: Icon(Icons.favorite_border_outlined)),
+                IconButton(
+                    onPressed: () {
+                      Fluttertoast.showToast(
+                          msg: "Notification icon  clicked ");
+                    },
+                    icon: Icon(Icons.notifications_outlined)),
+                IconButton(
+                    onPressed: () {
+                      Fluttertoast.showToast(
+                          msg: "Flitter  icon  clicked ");
+                    },
+                    icon: Icon(Icons.tune_outlined))
+              ],
+            ),
+          )
+        ],
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 15),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
@@ -80,7 +130,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(builder: (context) => new_application()));
           });
         },
-        tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -253,6 +302,27 @@ class Page1 extends StatelessWidget {
       'Mauritius',
       'Malta',
     ];
+    List<String> univeristiesName = [
+      'Worcester University',
+      'Acadia University',
+      'Worcester University',
+      'Acadia University',
+      'Worcester University',
+      'Acadia University',
+    ];
+    List<String> univeristiesImages = [
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/acadia_universiti_logo.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/acadia_universiti_logo.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/acadia_universiti_logo.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/acadia_universiti_logo.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/acadia_universiti_logo.png',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/acadia_universiti_logo.png',
+    ];
+    List<String> Sliderlist = [
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/slider1.jpg',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/slider2.jpg',
+      'https://raw.githubusercontent.com/guddulawaniya/images/main/slider3.jpg',
+    ];
     List<String> CountriesFlagList = [
       'https://raw.githubusercontent.com/guddulawaniya/images/main/United_Kingdom_flag.png',
       'https://raw.githubusercontent.com/guddulawaniya/images/Countries_Flag_Images/usa_flag.avif',
@@ -273,57 +343,36 @@ class Page1 extends StatelessWidget {
         child: Container(
       child: Column(
         children: [
-          CarouselSlider(
-            items: [
-              //1st Image of Slider
-              Container(
-                margin: EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
-                    fit: BoxFit.cover,
-                  ),
+          CarouselSlider.builder(
+            itemCount: Sliderlist.length,
+            itemBuilder:
+                (BuildContext context, int itemIndex, int pageViewIndex) =>
+                    Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(Sliderlist[itemIndex]),
+                  fit: BoxFit.cover,
                 ),
               ),
-
-              //2nd Image of Slider
-              Container(
-                margin: EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-
-              //3rd Image of Slider
-              Container(
-                margin: EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        "https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ],
+            ),
             options: CarouselOptions(
-              height: 120.0,
-              enlargeFactor: double.infinity,
-              autoPlay: true,
+              height: 80,
+              aspectRatio: 16 / 9,
+              viewportFraction: 1,
+              initialPage: 0,
               enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(seconds: 2),
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 5),
+              autoPlayAnimationDuration: Duration(milliseconds: 600),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              enlargeFactor: 0.3,
+              scrollDirection: Axis.horizontal,
             ),
           ),
           Card(
-            margin: EdgeInsets.all(16),
+            margin: EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 16),
             color: Color.fromARGB(255, 231, 238, 246),
             clipBehavior: Clip.hardEdge,
             shape: RoundedRectangleBorder(
@@ -694,24 +743,24 @@ class Page1 extends StatelessWidget {
                                               ),
                                             ),
                                           ),
-                                          Container(
-                                            child: Text(
-                                              countriesNamelist[i],
-                                              style: TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.black,
-                                              ),
+                                          Text(
+                                            countriesNamelist[i],
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black,
                                             ),
-                                            margin: EdgeInsets.only(bottom: 12),
                                           ),
+                                          SizedBox(
+                                            height: 10,
+                                          )
                                         ],
                                       ),
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
                                           side: BorderSide(
-                                            width: 1,
+                                            width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 190, 198, 206),
+                                                255, 208, 208, 210),
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(8)),
@@ -734,8 +783,7 @@ class Page1 extends StatelessWidget {
 
           Container(
             height: 200,
-            color: Color.fromARGB(255, 213, 229, 252),
-            margin: EdgeInsets.only(bottom: 20),
+            color: Color.fromARGB(255, 220, 229, 250),
             padding: EdgeInsets.only(top: 7),
             child: Column(
               children: [
@@ -794,32 +842,32 @@ class Page1 extends StatelessWidget {
 
           Container(
             alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(left: 16),
+            margin: EdgeInsets.only(left: 16, top: 20),
             child: Text(
               "Refer & Earn ",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
+
           Container(
             height: 100,
             margin: EdgeInsets.all(10),
             child: Card(
-              color: Colors.white70,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(
+                  width: 0.5,
+                  color: Colors.grey,
+                  //color: Color.fromARGB(255, 208, 208, 210),
+                ),
+              ),
+              color: Colors.white,
               child: Row(
                 children: [
                   Container(
                     width: 140,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(8),
-                          bottomLeft: Radius.circular(8)),
-                      image: DecorationImage(
-                        alignment: Alignment.topCenter,
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
-                      ),
-                    ),
+                    child: Lottie.network(
+                        "https://assets6.lottiefiles.com/packages/lf20_ehegqmwn.json"),
                   ),
                   Container(
                     alignment: Alignment.topLeft,
@@ -836,26 +884,186 @@ class Page1 extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text('Earn your tution fee',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black54
-                        ),),
-                        Text('Copy & share your referral code',style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          fontSize: 15,
-                          color: Colors.black,
-                        ),),
+                        Text(
+                          'Earn your tution fee',
+                          style: TextStyle(fontSize: 13, color: Colors.black54),
+                        ),
+                        Text(
+                          'Copy & share your referral code',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontSize: 15,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   )
                 ],
               ),
+            ),
+          ),
+
+          // latest study updates Abroad Updates
+
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.only(left: 16, top: 20),
+            child: Text(
+              "Latest Study Abroad Updates ",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
+          Container(
+            height: 325,
+            margin: EdgeInsets.all(10),
+            child: Card(
+              color: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                  side: BorderSide(color: Colors.grey, width: 0.5),
+                  borderRadius: BorderRadius.circular(8)),
+              child: Column(
+                children: [
+                  Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8)),
+                      image: DecorationImage(
+                        alignment: Alignment.topCenter,
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            "https://raw.githubusercontent.com/guddulawaniya/images/main/group_image.png"),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    margin: EdgeInsets.only(top: 15, left: 10, right: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Study in Canada Quotes For International Student 2023",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                            "Canada has long been a beacob for international students seeking quality education in a diverse and welcoming eviroment. From its picturesque landscapes to its world-renowned universities,its no wo.."),
+                        SizedBox(height: 15),
+                        Text(
+                          "30 May 2023",
+                          style: TextStyle(fontSize: 12),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
-          )
+          ),
+
+          // Univerties
+
+          Container(
+            padding: EdgeInsets.only(top: 20, bottom: 20),
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(left: 16),
+                  child: Text(
+                    "Universities",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ),
+                Container(
+                  height: 250,
+                  margin: EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 16,
+                  ),
+                  child: Stack(
+                    children: <Widget>[
+                      ListView.builder(
+                          itemCount: univeristiesName.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, i) {
+                            return Column(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Fluttertoast.showToast(
+                                        msg: countriesNamelist[i]);
+                                  },
+                                  child: SizedBox(
+                                    width: 250,
+                                    child: Card(
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            width: 150,
+                                            height: 110,
+                                            margin: EdgeInsets.all(10),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(8),
+                                                  topRight: Radius.circular(8)),
+                                              image: DecorationImage(
+                                                fit: BoxFit.contain,
+                                                alignment: Alignment.topCenter,
+                                                image: NetworkImage(
+                                                    univeristiesImages[i]),
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            univeristiesName[i],
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black87,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Course 37+',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          )
+                                        ],
+                                      ),
+                                      color: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                            width: 0.7,
+                                            color: Color.fromARGB(
+                                                255, 190, 198, 206),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8)),
+                                      margin:
+                                          EdgeInsets.only(left: 8, right: 8),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          }),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     ));
