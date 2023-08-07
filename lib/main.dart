@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:demo/new_application.dart';
+import 'package:demo/sidenav_bar.dart';
 import 'package:demo/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -51,6 +52,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   int pageIndex = 0;
 
   Page1 page1 = new Page1();
@@ -66,6 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: Navbar(),
+
       appBar: AppBar(
         leading: Container(
           alignment: Alignment.center,
@@ -73,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Color.fromARGB(255, 171, 38, 38),
             child: IconButton(
               onPressed: () {
-                Fluttertoast.showToast(msg: "profile image clicked ");
+                scaffoldKey.currentState?.openDrawer();
               },
               icon: Icon(
                 Icons.person,
@@ -240,6 +245,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
 }
 
 class Page1 extends StatelessWidget {
