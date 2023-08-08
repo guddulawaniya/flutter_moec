@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
-import 'package:share_plus/share_plus.dart';
 
 class Navbar extends StatelessWidget {
   const Navbar({super.key});
@@ -213,8 +211,7 @@ class Navbar extends StatelessWidget {
                           style: TextStyle(fontSize: 11, color: Colors.white60),
                         ),
                         GestureDetector(
-                          onTap: () async {
-                            await Share.share("text");
+                          onTap: () {
 
                           },
                           child: Text(
