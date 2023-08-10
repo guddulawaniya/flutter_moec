@@ -7,6 +7,7 @@ class new_application extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 18),
         backgroundColor: Theme
             .of(context)

@@ -239,7 +239,8 @@ class Dashboard extends StatelessWidget {
                       margin: EdgeInsets.only(left: 16, right: 16, top: 10),
                       child: Text(
                         "Quick Actions",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                        style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                       ),
                     ),
                     Container(

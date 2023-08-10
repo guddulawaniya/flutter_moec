@@ -5,7 +5,7 @@ import 'package:demo/sidenav_bar.dart';
 import 'package:demo/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'ThemeFile.dart';
 import 'application.dart';
 import 'community.dart';
 import 'insight.dart';
@@ -29,19 +29,7 @@ class MyApp extends StatelessWidget {
       },
       title: 'Dashboard',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          colorScheme: ColorScheme(
-              onBackground: Colors.black45,
-              brightness: Brightness.light,
-              background: Colors.white70,
-              primary: Color.fromARGB(255, 26, 81, 158),
-              secondary: Color.fromARGB(255, 171, 38, 38),
-              onPrimary: Color.fromARGB(255, 26, 81, 158),
-              onSecondary: Colors.white,
-              error: Colors.red,
-              onError: Colors.white,
-              surface: Colors.white70,
-              onSurface: Colors.black45)),
+      theme: Apptheme.lightTheme,
       home: const MyHomePage(title: 'Student Dashboard'),
     );
   }
